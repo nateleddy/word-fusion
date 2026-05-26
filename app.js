@@ -1,39 +1,46 @@
 // --- WORD POOL SYSTEM ---
 // Curated list of high-quality, recognisable compound words/word pairs
 const PHRASE_POOL = [
-    ["sweat", "shop"],
-    ["green", "house"],
-    ["fire", "fly"],
-    ["honey", "comb"],
-    ["dragon", "fly"],
-    ["butter", "fly"],
-    ["water", "melon"],
-    ["sun", "flower"],
-    ["star", "fish"],
-    ["rain", "bow"],
-    ["jelly", "fish"],
-    ["pine", "apple"],
-    ["snow", "flake"],
-    ["sand", "paper"],
-    ["moon", "light"],
-    ["tooth", "brush"],
-    ["skate", "board"],
-    ["foot", "ball"],
-    ["earth", "quake"],
-    ["book", "shelf"],
-    ["key", "board"],
-    ["life", "guard"],
-    ["cup", "cake"],
-    ["gold", "fish"],
-    ["pan", "cake"],
-    ["straw", "berry"],
-    ["note", "book"],
-    ["light", "house"],
-    ["wheel", "chair"],
-    ["super", "man"],
-    ["rain", "coat"],
-    ["wind", "mill"],
-    ["thunder", "storm"]
+    ["dmliZQ==", "Y29kZQ=="],         // vibe code
+    ["c3dlYXQ=", "c2hvcA=="],         // sweat shop
+    ["Z3JlZW4=", "aG91c2U="],         // green house
+    ["ZmlyZQ==", "Zmx5"],             // fire fly
+    ["aG9uZXk=", "Y29tYg=="],         // honey comb
+    ["ZHJhZ29u", "Zmx5"],             // dragon fly
+    ["YnV0dGVy", "Zmx5"],             // butter fly
+    ["d2F0ZXI=", "bWVsb24="],         // water melon
+    ["c3Vu", "Zmxvd2Vy"],             // sun flower
+    ["c3Rhcg==", "ZmlzaA=="],         // star fish
+    ["cmFpbg==", "Ym93"],             // rain bow
+    ["amVsbHk=", "ZmlzaA=="],         // jelly fish
+    ["cGluZQ==", "YXBwbGU="],         // pine apple
+    ["c25vdw==", "Zmxha2U="],         // snow flake
+    ["c2FuZA==", "cGFwZXI="],         // sand paper
+    ["bW9vbg==", "bGlnaHQ="],         // moon light
+    ["dG9vdGg=", "YnJ1c2g="],         // tooth brush
+    ["c2thdGU=", "Ym9hcmQ="],         // skate board
+    ["Zm9vdA==", "YmFsbA=="],         // foot ball
+    ["ZWFydGg=", "cXVha2U="],         // earth quake
+    ["Ym9vaw==", "c2hlbGY="],         // book shelf
+    ["a2V5", "Ym9hcmQ="],             // key board
+    ["bGlmZQ==", "Z3VhcmQ="],         // life guard
+    ["Y3Vw", "Y2FrZQ=="],             // cup cake
+    ["Z29sZA==", "ZmlzaA=="],         // gold fish
+    ["cGFu", "Y2FrZQ=="],             // pan cake
+    ["c3RyYXc=", "YmVycnk="],         // straw berry
+    ["bm90ZQ==", "Ym9vaw=="],         // note book
+    ["bGlnaHQ=", "aG91c2U="],         // light house
+    ["d2hlZWw=", "Y2hhaXI="],         // wheel chair
+    ["c3VwZXI=", "bWFu"],             // super man
+    ["cmFpbg==", "Y29hdA=="],         // rain coat
+    ["d2luZA==", "bWlsbA=="],         // wind mill
+    ["dGh1bmRlcg==", "c3Rvcm0="],       // thunder storm
+    ["ZWNobw==", "Y2hhbWJlcg=="],       // echo chamber
+    ["Y2FyYm9u", "Zm9vdHByaW50"],     // carbon footprint
+    ["c2lsdmVy", "bGluaW5n"],         // silver lining
+    ["Z3Jhdml0eQ==", "cHVsbA=="],       // gravity pull
+    ["bWluZA==", "c2V0"],             // mind set
+    ["cXVhbnR1bQ==", "bGVhcA=="]        // quantum leap
 ];
 
 // --- SOUND SYNTHESIZER (WEB AUDIO API) ---
@@ -237,7 +244,8 @@ const Game = {
         const shuffled = [...PHRASE_POOL].sort(() => 0.5 - Math.random());
         const selectedPairs = shuffled.slice(0, 5);
         
-        selectedPairs.forEach(pair => {
+        selectedPairs.forEach(encodedPair => {
+            const pair = [atob(encodedPair[0]), atob(encodedPair[1])];
             const clueFirst = Math.random() > 0.5;
             this.roundPuzzles.push({
                 pair: pair,
